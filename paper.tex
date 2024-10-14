@@ -97,7 +97,7 @@ programming with algebraic structures (rather than untamed arrays of
 bits) will be instrumental!
 
 In the long run, our ambition is to offer cryptographers the
-conceptual apparatus to better illuminate their ``Section 5'' scene.
+conceptual apparatus to better illuminate their ``Section 4'' scene.
 Each and every symmetric cryptosystem should not have to exhibit a
 bitsliced or fixsliced implementation: by just \emph{specifying} the
 cryptosystem in the right framework (abstract yet suitably
@@ -118,7 +118,7 @@ for fixslicing is next on the list.
 %% **** off the critical path
 
 As intimidating as cryptographers are, the essence of modern symmetric
-cryptography primitives can in fact be distilled in a few paragraph. A
+cryptographic primitives can in fact be distilled in a few paragraph. A
 primitive can be understood as a purely functional programs. It takes
 two inputs, the input ``cleartext'' and a list of ``round subkeys''
 (which are derived from a single key through a non-performance
@@ -191,7 +191,7 @@ through single-instruction multiple-data (SIMD) instructions. Doubling
 the size of machine words yields nearly twice the throughput, without
 any effort. Evidence tends to suggest that cryptographers obtain
 bitsliced designs through sheer intellectual might. It is in fact the
-sole purpose of the traditional ``Section 5'' scene to exhibit a
+sole purpose of the traditional ``Section 4'' scene to exhibit a
 bitsliced witness in all the gory details.
 
 %% * Contributions
@@ -564,6 +564,7 @@ depicted in Figure~\ref{fig:mixcolumns}:
     \caption{Mixcolumns (from~\citet{beierle:skinny})}
     \label{fig:mixcolumns}
   \end{subfigure}
+  \caption{\Skinny{} diffusion layer}
 \end{figure}
 
 \subsection{Confusion}
@@ -1033,12 +1034,13 @@ language of Boolean algebras (\coqe!xor!, \etc{}), Naperian operations
 (\coqe!init!, \coqe!lookup!) and foldable operations (more precisely,
 \coqe!ror! and \coqe!rol!).
 
-One solution\footnote{Needless to say, in practice, we actually
-started off from the simplified implementation, kindly provided
-by~\citet{adominicai:fixslicing-gift}, and then used Coq to
-understand how these solutions could have been derived.}, which
-consists in using Coq as a term rewriting engine, is to postulate the
-existence of such an explicit form, let us call it
+One solution\footnote{Needless to say, in reality, we first went
+looking find 4 simplified implementations, inspired
+by~\citet{adominicai:fixslicing-gift}. Only later did we use Coq to
+understand how these solutions \emph{could} have been derived from
+first principles.}, which consists in using Coq as a term rewriting
+engine, is to postulate the existence of such an explicit form, let us
+call it
 %
 \coqe!mixcolumns_mod_explicit!.
 %
